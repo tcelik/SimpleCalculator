@@ -1,11 +1,9 @@
 package org.csystem.simplecalculatorapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.UsesJava8;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
 import java.util.Collection;
+
 
 @Component
 public class SimpleCalculator {
