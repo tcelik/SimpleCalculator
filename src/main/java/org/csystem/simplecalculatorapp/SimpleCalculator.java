@@ -1,5 +1,7 @@
 package org.csystem.simplecalculatorapp;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.UsesJava8;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -8,15 +10,8 @@ import java.util.Collection;
 @Component
 public class SimpleCalculator {
 
-    private final Collection<IOperation> m_operations;
-
-    //Spring bunu çağırcak.
-    //Elemanları IOperation türünden bir arraylist yaratmalı.
-    public SimpleCalculator(Collection<IOperation> operations)
-    {
-        //eğer yaratırsa artık elimde bir arraylist var.
-        m_operations = operations;
-    }
+    @Autowired
+    private Collection<IOperation> m_operations;
 
     public void calculate(int a, int b, char op)
     {
