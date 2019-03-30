@@ -7,14 +7,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class App {
     public static void main(String[] args)
     {
-        //SpringApplication.run(App.class, args);
+        //context alınır IoC için.
+        var context = SpringApplication.run(App.class, args);
 
-
-        SimpleCalculator calculator = new SimpleCalculator();
+        //SimpleCalculator calculator = new SimpleCalculator();
+        var calculator = context.getBean(SimpleCalculator.class);
+        var calculator1 = context.getBean(SimpleCalculator.class);
 
         calculator.calculate(2, 3 , '+');
         calculator.calculate(2, 3 , '-');
-        calculator.calculate(2, 3, '*');
-        calculator.calculate(2, 3, '/');
+        //calculator.calculate(2, 3, '*');
+        //calculator.calculate(2, 3, '/');
     }
 }

@@ -1,21 +1,26 @@
 package org.csystem.simplecalculatorapp;
 
-import java.util.ArrayList;
+import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+@Component
 public class SimpleCalculator {
 
-    private static ArrayList<IOperation> ms_operations = new ArrayList<>();
+    private final Collection<IOperation> m_operations;
 
-    static {
-        ms_operations.add(new Addition());
-        ms_operations.add(new Substraction());
-        ms_operations.add(new Multiplication());
-        ms_operations.add(new Division());
+    //Spring bunu çağırcak.
+    //Elemanları IOperation türünden bir arraylist yaratmalı.
+    public SimpleCalculator(Collection<IOperation> operations)
+    {
+        //eğer yaratırsa artık elimde bir arraylist var.
+        m_operations = operations;
     }
 
     public void calculate(int a, int b, char op)
     {
-        for (IOperation operation : ms_operations) {
+        for (IOperation operation : m_operations) {
             if (operation.isValid(op))
                 System.out.println(operation.doOperation(a, b));
         }

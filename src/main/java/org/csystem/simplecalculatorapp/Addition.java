@@ -1,5 +1,8 @@
 package org.csystem.simplecalculatorapp;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Addition implements IOperation { // Addition is a IOperation.
 
     @Override
